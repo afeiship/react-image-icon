@@ -10,11 +10,9 @@ interface ValueTypes {
 
 interface Props extends React.HTMLProps<HTMLImageElement> {
   className?: string;
-  value?: string | ValueTypes;
+  value: string | ValueTypes;
   disabled?: boolean;
 }
-
-type ValueProps = Pick<Props, 'value'>;
 
 interface State {
   hovering: boolean;
@@ -37,7 +35,7 @@ export default class ReactImageIcon extends Component<Props, State> {
     /**
      * The icon image src.
      */
-    value: PropTypes.any,
+    value: PropTypes.any.isRequired,
     /**
      * Image icon width/height.
      */
@@ -57,7 +55,7 @@ export default class ReactImageIcon extends Component<Props, State> {
   }
 
   get src() {
-    const value: ValueProps = this.props.value;
+    const value = this.props.value;
     if (typeof value === 'object') {
       return this.state.hovering ? value.hover : value.normal;
     }
