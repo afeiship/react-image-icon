@@ -1,6 +1,6 @@
 {
   "name": "@jswork/react-image-icon",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Image icon for react.",
   "license": "MIT",
   "main": "dist/index.js",
