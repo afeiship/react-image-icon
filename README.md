@@ -16,13 +16,16 @@ npm install -S @jswork/react-image-icon
 | --------- | ------ | -------- | ------- | ------------------------------------- |
 | className | string | false    | -       | The extended className for component. |
 | disabled  | bool   | false    | -       | If show disabled.                     |
-| value     | string | false    | -       | The icon image src.                   |
+| value     | any    | false    | -       | The icon image src.                   |
 | size      | union  | false    | 40      | Image icon width/height.              |
 
 
 ## usage
 1. import css
   ```scss
+  @import "~@jswork/boilerplate-react-component/dist/style.css";
+
+  // or use sass
   @import "~@jswork/boilerplate-react-component/dist/style.scss";
 
   // customize your styles:
@@ -48,8 +51,10 @@ npm install -S @jswork/react-image-icon
           value="https://tva1.sinaimg.cn/large/007S8ZIlgy1gexw87htqhj305k05k74o.jpg"
         />
         <ReactImageIcon
-          disabled
-          value="https://tva1.sinaimg.cn/large/007S8ZIlgy1gexw87htqhj305k05k74o.jpg"
+          value={{
+            normal: 'https://mat1.gtimg.com/v/comment/images/avatar_default.9d95c455.jpg',
+            hover: 'https://tva1.sinaimg.cn/large/007S8ZIlgy1gexw87htqhj305k05k74o.jpg'
+          }}
         />
       </Container>
     );
