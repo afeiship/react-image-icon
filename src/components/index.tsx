@@ -8,10 +8,12 @@ interface ValueTypes {
   hover?: string;
 }
 
+// @ts-ignore
 interface Props extends React.HTMLProps<HTMLImageElement> {
   className?: string;
-  value: string | ValueTypes;
+  value?: string | ValueTypes;
   disabled?: boolean;
+  size?: any;
 }
 
 interface State {
@@ -42,7 +44,7 @@ export default class ReactImageIcon extends Component<Props, State> {
     size: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object])
   };
 
-  static defaultProps = { value: '', size: 40 };
+  static defaultProps = { size: 40 };
 
   state = { hovering: false };
 
