@@ -1,6 +1,6 @@
 {
   "name": "@jswork/react-image-icon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Image icon for react.",
   "license": "MIT",
@@ -79,5 +79,6 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
-  }
+  },
+  "keywords": []
 }
