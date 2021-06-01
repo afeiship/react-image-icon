@@ -3,15 +3,26 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import filterProps from '@jswork/filter-react-props';
 
-export interface Props extends React.HTMLProps<HTMLImageElement> {
+interface ValueTypes {
+  normal?: string;
+  hover?: string;
+}
+
+interface Props extends React.HTMLProps<HTMLImageElement> {
   className?: string;
-  value?: string;
+  value?: string | ValueTypes;
   disabled?: boolean;
+}
+
+type ValueProps = Pick<Props, 'value'>;
+
+interface State {
+  hovering: boolean;
 }
 
 const CLASS_NAME = 'react-image-icon';
 
-export default class ReactImageIcon extends Component<Props> {
+export default class ReactImageIcon extends Component<Props, State> {
   static displayName = CLASS_NAME;
   static version = '__VERSION__';
   static propTypes = {
@@ -26,14 +37,16 @@ export default class ReactImageIcon extends Component<Props> {
     /**
      * The icon image src.
      */
-    value: PropTypes.string,
+    value: PropTypes.any,
     /**
      * Image icon width/height.
      */
     size: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object])
   };
 
-  static defaultProps = { size: 40 };
+  static defaultProps = { value: '', size: 40 };
+
+  state = { hovering: false };
 
   get sizeProps() {
     const { size } = this.props;
@@ -43,6 +56,22 @@ export default class ReactImageIcon extends Component<Props> {
     return size;
   }
 
+  get src() {
+    const value: ValueProps = this.props.value;
+    if (typeof value === 'object') {
+      return this.state.hovering ? value.hover : value.normal;
+    }
+    return value;
+  }
+
+  handleMouseEnter = () => {
+    this.setState({ hovering: true });
+  };
+
+  handleMouseLeave = () => {
+    this.setState({ hovering: false });
+  };
+
   render() {
     const { className, value, ...props } = this.props;
     const theProps = filterProps(props);
@@ -50,8 +79,10 @@ export default class ReactImageIcon extends Component<Props> {
     return (
       <img
         data-component={CLASS_NAME}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
         className={classNames(CLASS_NAME, className)}
-        src={value}
+        src={this.src}
         {...this.sizeProps}
         {...theProps}
       />

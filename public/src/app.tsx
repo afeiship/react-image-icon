@@ -16,8 +16,10 @@ export default (props: any) => {
         value="https://tva1.sinaimg.cn/large/007S8ZIlgy1gexw87htqhj305k05k74o.jpg"
       />
       <ReactImageIcon
-        disabled
-        value="https://tva1.sinaimg.cn/large/007S8ZIlgy1gexw87htqhj305k05k74o.jpg"
+        value={{
+          normal: 'https://mat1.gtimg.com/v/comment/images/avatar_default.9d95c455.jpg',
+          hover: 'https://tva1.sinaimg.cn/large/007S8ZIlgy1gexw87htqhj305k05k74o.jpg'
+        }}
       />
     </Container>
   );
