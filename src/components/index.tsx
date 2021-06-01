@@ -22,19 +22,37 @@ export default class ReactImageIcon extends Component<Props> {
     /**
      * If show disabled.
      */
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    /**
+     * The icon image src.
+     */
+    value: PropTypes.string,
+    /**
+     * Image icon width/height.
+     */
+    size: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object])
   };
 
-  static defaultProps = { width: 32, height: 32 };
+  static defaultProps = { size: 40 };
+
+  get sizeProps() {
+    const { size } = this.props;
+    if (typeof size !== 'object') {
+      return { width: size, height: size };
+    }
+    return size;
+  }
 
   render() {
-    const { className, ...props } = this.props;
+    const { className, value, ...props } = this.props;
     const theProps = filterProps(props);
 
     return (
       <img
         data-component={CLASS_NAME}
         className={classNames(CLASS_NAME, className)}
+        src={value}
+        {...this.sizeProps}
         {...theProps}
       />
     );

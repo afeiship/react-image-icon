@@ -23,7 +23,7 @@ nx.declare({
       nx.replaceInFile('README.md', [
         ['__GENERATE_DOCS__', rmp('./src/components/index.tsx')],
         ['__GENERATE_DAPP__', indentString(docApp, ' ', 2)],
-        ['../src/main', '@jswork/boilerplate-react-component']
+        ['../../src/main', '@jswork/react-image-icon']
       ]);
     }
   }

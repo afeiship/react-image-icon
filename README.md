@@ -15,16 +15,14 @@ npm install -S @jswork/react-image-icon
 | Name      | Type   | Required | Default | Description                           |
 | --------- | ------ | -------- | ------- | ------------------------------------- |
 | className | string | false    | -       | The extended className for component. |
-| value     | object | false    | null    | Default value.                        |
-| onChange  | func   | false    | noop    | The change handler.                   |
+| disabled  | bool   | false    | -       | If show disabled.                     |
+| value     | string | false    | -       | The icon image src.                   |
+| size      | union  | false    | 40      | Image icon width/height.              |
 
 
 ## usage
 1. import css
   ```scss
-  @import "~@jswork/boilerplate-react-component/dist/style.css";
-
-  // or use sass
   @import "~@jswork/boilerplate-react-component/dist/style.scss";
 
   // customize your styles:
@@ -33,8 +31,9 @@ npm install -S @jswork/react-image-icon
 2. import js
   ```js
   import React from 'react';
-  import ReactImageIcon from '../@jswork/boilerplate-react-component';
+  import ReactImageIcon from '@jswork/react-image-icon';
   import styled from 'styled-components';
+  import '../../src/components/style.scss';
 
   const Container = styled.div`
     width: 80%;
@@ -44,7 +43,14 @@ npm install -S @jswork/react-image-icon
   export default (props: any) => {
     return (
       <Container>
-        <ReactImageIcon />
+        <ReactImageIcon
+          size={32}
+          value="https://tva1.sinaimg.cn/large/007S8ZIlgy1gexw87htqhj305k05k74o.jpg"
+        />
+        <ReactImageIcon
+          disabled
+          value="https://tva1.sinaimg.cn/large/007S8ZIlgy1gexw87htqhj305k05k74o.jpg"
+        />
       </Container>
     );
   };

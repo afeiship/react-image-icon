@@ -12,13 +12,12 @@ export default (props: any) => {
   return (
     <Container>
       <ReactImageIcon
-        width="32"
-        height={32}
-        src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gexw87htqhj305k05k74o.jpg"
+        size={32}
+        value="https://tva1.sinaimg.cn/large/007S8ZIlgy1gexw87htqhj305k05k74o.jpg"
       />
       <ReactImageIcon
         disabled
-        src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gexw87htqhj305k05k74o.jpg"
+        value="https://tva1.sinaimg.cn/large/007S8ZIlgy1gexw87htqhj305k05k74o.jpg"
       />
     </Container>
   );
