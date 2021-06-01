@@ -3,19 +3,13 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import filterProps from '@jswork/filter-react-props';
 
-interface ValueTypes {
-  normal?: string;
-  hover?: string;
-}
-
 interface State {
   hovering: boolean;
 }
 
-// @ts-ignore
 export interface Props extends React.HTMLProps<HTMLImageElement> {
   className?: string;
-  value?: string | ValueTypes;
+  value?: any;
   disabled?: boolean;
   size?: any;
 }
