@@ -8,16 +8,16 @@ interface ValueTypes {
   hover?: string;
 }
 
+interface State {
+  hovering: boolean;
+}
+
 // @ts-ignore
-interface Props extends React.HTMLProps<HTMLImageElement> {
+export interface Props extends React.HTMLProps<HTMLImageElement> {
   className?: string;
   value?: string | ValueTypes;
   disabled?: boolean;
   size?: any;
-}
-
-interface State {
-  hovering: boolean;
 }
 
 const CLASS_NAME = 'react-image-icon';
